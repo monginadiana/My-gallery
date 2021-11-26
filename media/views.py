@@ -1,7 +1,11 @@
 from django.shortcuts import render
-from django.http import HttpResponse
+
+from media.models import Image
+
 
 # Create your views here.
 
-def welcome(request):
-    return render(request, 'welcome.html')
+def index(request):
+    image = Image.objects.all()
+    ctx = {'Image':image}
+    return render(request, 'all-media/index.html',ctx)
