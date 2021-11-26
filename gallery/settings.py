@@ -12,6 +12,16 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 import os
 from pathlib import Path
 
+# cloudinary
+import cloudinary
+import cloudinary.uploader
+import cloudinary.api
+
+cloudinary.config( 
+  cloud_name = "mongina", 
+  api_key = "332865662615486", 
+  api_secret = "Mu5vzosaB_bVW-p8GaqQ0RHKtu4" 
+)
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -33,6 +43,7 @@ ALLOWED_HOSTS = []
 INSTALLED_APPS = [
     'bootstrap4',
     'media',
+    'cloudinary'
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
