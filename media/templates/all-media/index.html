@@ -2,15 +2,10 @@
 
 {% block content %}
 {{block.super}}
-{% endblock %}
 
-{% block content %}
-<body>
-        <h2>Cloudinary Fish</h2>
-        <!-- loop through all the images -->
-        {% for pic in photo %}
-        <h2>{{pic.title}}</h2>
-            <img src="{{pic.image.url}}" alt="fish">
-        {% endfor %}
-</body>
+{% for image in Image%}
+<!-- loop through all the images -->      
+<h2>{{image.name}}</h2>
+<img src="{{image.image.url}}" alt="fish">
+{% endfor %}
 {% endblock %}

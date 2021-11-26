@@ -2,8 +2,8 @@ from django.db import models
 from cloudinary.models import CloudinaryField
 
 # Create your models here.
-class Image(models.Model):
-    photo = CloudinaryField('photo')
+class Images(models.Model):
+    image = CloudinaryField('image')
     name =models.CharField(max_length=20)
     description=models.CharField(max_length=20)
     
