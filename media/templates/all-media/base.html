@@ -6,20 +6,21 @@
   <meta charset="utf-8">
 
   {% if title %}
-  <title>Profile - {{title}}</title>
+  <title>My Profile - {{title}}</title>
   {% else %}
-    <title> Moringa Tribune </title>
+    <title> My Profile </title>
   {% endif %}
 
   {% block styles %}
     {% bootstrap_css %}
+    <link rel="stylesheet" href="{% static 'css/media.css' %}">
   {% endblock %}
 
 </head>
 <body>
     {% include "navbar.html" %}
 
-    {% block content %} <h1 class='text-center'>Welcome to my profile</h1> {%endblock%}
+    {% block content %} <h1 class='text-center'></h1> {%endblock%}
 
     {% block scripts %}
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
