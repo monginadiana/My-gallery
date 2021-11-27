@@ -9,7 +9,7 @@
     <!-- loop through all the images -->      
         <div class="col-4">
              <h2>{{image.name}}</h2>
-            <h2>{{image.description}}</h2> 
+            {% comment %} <h2>{{image.description}}</h2>  {% endcomment %}
             <img src="{{image.image.url}}" alt="fish">
             {% endfor %}
         </div>
