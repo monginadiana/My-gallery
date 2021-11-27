@@ -7,6 +7,14 @@ class Images(models.Model):
     name =models.CharField(max_length=20)
     description=models.CharField(max_length=20)
     
+    
+    def save_image(self):
+        self.save()
+    
+    # delete image from database
+    def delete_image(self):
+        self.delete()
+    
     def __str__(self):
         return self.name
     

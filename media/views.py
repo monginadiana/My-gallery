@@ -25,9 +25,9 @@ def search_results(request):
     else:
         message = "You haven't searched for any term"
         return render(request, 'all-media/search.html',{"message":message})
-def article(request,image_id):
+def image(request,image_id):
     try:
         Image = Images.objects.get(id = image_id)
     except ObjectDoesNotExist:
         raise Http404()
-    return render(request,"all-news/image.html", {"images":Images})
+    return render(request,"all-news/image.html", {"image":image})
