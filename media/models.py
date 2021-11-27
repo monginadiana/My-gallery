@@ -22,6 +22,13 @@ class Category(models.Model):
     
 class Location(models.Model):
     name = models.CharField(max_length = 30)
+    
+    def save_location(self):
+        self.save()
+
+    
+    def __str__(self):
+        return self.name
 
 # Create your models here.
 class Images(models.Model):
@@ -48,8 +55,8 @@ class Images(models.Model):
         return self.name
     
     @classmethod
-    def search_by_name(cls,search_term):
-        media = cls.objects.filter(name__icontains=search_term)
-        return media
+    def search_by_category(cls,search_term):
+        images = cls.objects.filter(category__name__icontains=search_term)
+        return images
 
 
