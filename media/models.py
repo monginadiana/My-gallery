@@ -30,4 +30,7 @@ class Category(models.Model):
      # save category to database
     def save_category(self):
         self.save()
+    # delete category to database
+    def delete_category(self):
+        self.delete()
 
