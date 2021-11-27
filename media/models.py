@@ -19,6 +19,9 @@ class Category(models.Model):
         self.delete()
     def __str__(self):
         return self.name
+    
+class Location(models.Model):
+    name = models.CharField(max_length = 30)
 
 # Create your models here.
 class Images(models.Model):
