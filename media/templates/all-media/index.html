@@ -2,10 +2,18 @@
 
 {% block content %}
 {{block.super}}
+<div class="container text-center">
+    <h1>Here are memories of nature</h1>
+    <div class="row">
+        {% for image in Image%}
+    <!-- loop through all the images -->      
+        <div class="col-4">
+             <h2>{{image.name}}</h2>
+            <h2>{{image.description}}</h2> 
+            <img src="{{image.image.url}}" alt="fish">
+            {% endfor %}
+        </div>
+    </div>
+</div>
 
-{% for image in Image%}
-<!-- loop through all the images -->      
-<h2>{{image.name}}</h2>
-<img src="{{image.image.url}}" alt="fish">
-{% endfor %}
 {% endblock %}
