@@ -36,6 +36,9 @@ class Images(models.Model):
     name =models.CharField(max_length=20)
     description=models.CharField(max_length=20)
     category = models.ForeignKey(Category, on_delete=models.CASCADE,null=True)
+    location = models.ForeignKey(Location, on_delete=models.CASCADE,null=True)
+    
+    
     
     
     def save_image(self):
