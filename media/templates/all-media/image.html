@@ -1,21 +1,25 @@
-{%extends 'all-news/base.html'%}
+{%extends 'all-media/base.html'%}
 
  {% block content %}
 
- <div class="container">
+<div class="container">
+  <h1 class="text-center">{{image.name}}</h1>
 
-   <div class="row">
-     <img src="{{images.images_image.url}}"  class="img-responsive" alt="">
-   </div>
-
-   <div class="row">
-     <h1 class="text-center">{{image.name}}</h1>
-   </div>
-
-   <div class="row">
-     <p>{{image.description}}</p>
-   </div>
-
- </div>
+  <div class="img-details">
+      <span>
+          <b>Category: </b>
+          <i>{{image.category}}</i>
+      </span>
+      <span>
+          <b>Location: </b>
+          <i>{{image.location}}</i>
+      </span> 
+  </div>
+  <div>
+    <p>{{image.description}}</p>
+  </div>
+  
+  <img src="{{image.image.url}}"  alt="">
+</div>
 
  {% endblock %}

@@ -5,14 +5,23 @@
 <div class="container text-center">
     <h1>Here are memories of nature</h1>
     <div class="row">
-        {% for image in Image%}
+        {% for image in images%}
     <!-- loop through all the images -->      
         <div class="col-4">
-             <h2>{{image.name}}</h2>
-            <h2>{{image.category}}</h2> 
-             <h2>{{image.location}}</h2> 
-            
-            <img src="{{image.image.url}}" alt="fish">
+            <h2>{{image.name}}</h2>
+            <div class="img-details">
+                <span>
+                    <b>Category: </b>
+                    <i>{{image.category}}</i>
+                </span>
+                <span>
+                    <b>Location: </b>
+                    <i>{{image.location}}</i>
+                </span> 
+            </div>
+            <a href="/image/{{image.id}}">
+                <img src="{{image.image.url}}" alt="fish">            
+            </a>
         </div>
 {% endfor %}
    

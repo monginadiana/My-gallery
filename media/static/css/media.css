@@ -2,3 +2,18 @@ h1
 {
   color: green;
 }
+
+h2 {
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.img-details {
+  font-size: 8px;
+}
+
+img {
+  width: 100%;
+  border-radius: 3px;
+  border: 1px solid #eee;
+}

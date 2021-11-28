@@ -9,8 +9,8 @@ from media.models import Images
 
 
 def index(request):
-    Image = Images.objects.all()
-    ctx = {'Image':Image}
+    images = Images.objects.all()
+    ctx = {'images':images}
     return render(request, 'all-media/index.html',ctx)
 
 def search_results(request):
@@ -18,7 +18,7 @@ def search_results(request):
     if 'images' in request.GET and request.GET["images"]:
         search_term = request.GET.get("images")
         searched_images = Images.search_by_category(search_term)
-        message = f"{search_term}"
+        message = search_term
 
         return render(request, 'all-media/search.html',{"message":message,"images": searched_images})
 
@@ -27,7 +27,7 @@ def search_results(request):
         return render(request, 'all-media/search.html',{"message":message})
 def image(request,image_id):
     try:
-        Image = Images.objects.get(id = image_id)
+        image = Images.objects.get(id = image_id)
     except ObjectDoesNotExist:
         raise Http404()
-    return render(request,"all-news/image.html", {"image":image})
+    return render(request,"all-media/image.html", {"image":image})
