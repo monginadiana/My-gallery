@@ -3,20 +3,20 @@
  {% block content %}
 
 <div class="container">
-  <h1 class="text-center">{{image.name}}</h1>
+  <h1 class="text-center">Name:{{image.name}}</h1>
 
   <div class="img-details">
       <span>
           <b>Category: </b>
-          <i>{{image.category}}</i>
+          <i>Category:{{image.category}}</i>
       </span>
       <span>
           <b>Location: </b>
-          <i>{{image.location}}</i>
+          <i>Location:{{image.location}}</i>
       </span> 
   </div>
   <div>
-    <p>{{image.description}}</p>
+    <p>Description:{{image.description}}</p>
   </div>
   <div class="img-container">
     <button class="share-button" onClick="shareImage('{{image.image.url}}')">

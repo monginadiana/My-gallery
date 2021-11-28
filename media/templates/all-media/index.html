@@ -3,7 +3,11 @@
 {% block content %}
 {{block.super}}
 <div class="container text-center">
-    <h1>Here are memories of nature</h1>
+<br><br><br>
+    <blockquote class="blockquote">
+      <p class="mb-0">A photograph is a memory that lasts a lifetime.</p>
+      <footer class="bfooter"><em>Diana Mongina</em></footer>
+    </blockquote>
     
     <div class="row">
         {% for image in images%}
@@ -26,10 +30,8 @@
         </div>
         
         {% endfor %}
-        
-   
     </div>
-    <br>
+    <br> 
     <div class="row">
         <div class="col-md-6">
             <h2>Categories</h2>
@@ -39,7 +41,7 @@
                 {% for category in categories%}
             <!-- loop through all the images -->      
                 <a class="chip" href="/?category={{category.id}}">
-                    <i>{{category.name}}</i>
+                    <i>#{{category.name}}</i>
                 </a>
             {% endfor %}
         </div>
