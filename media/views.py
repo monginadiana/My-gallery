@@ -2,22 +2,30 @@ from django.shortcuts import render
 from django.http import Http404
 from django.core.exceptions import ObjectDoesNotExist
 
-from media.models import Images
+from media.models import Images, Category
 
 
 # Create your views here.
 
 
 def index(request):
-    images = Images.objects.all()
-    ctx = {'images':images}
+    categories = Category.objects.all()
+    
+    if 'category' in request.GET and request.GET["category"]:
+        category_id = request.GET.get("category")
+        images = Images.objects.filter(category = category_id)
+        
+    else:
+        images = Images.objects.all()
+            
+    ctx = {'images':images, 'categories': categories }
     return render(request, 'all-media/index.html',ctx)
 
 def search_results(request):
 
     if 'images' in request.GET and request.GET["images"]:
         search_term = request.GET.get("images")
-        searched_images = Images.search_by_category(search_term)
+        searched_images = Images.search(search_term)
         message = search_term
 
         return render(request, 'all-media/search.html',{"message":message,"images": searched_images})

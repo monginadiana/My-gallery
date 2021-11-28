@@ -4,6 +4,16 @@
 {{block.super}}
 <div class="container text-center">
     <h1>Here are memories of nature</h1>
+    <div>
+        <a class="chip" href="/">
+            <i>All</i>
+        </a>
+        {% for category in categories%}
+    <!-- loop through all the images -->      
+        <a class="chip" href="/?category={{category.id}}">
+            <i>{{category.name}}</i>
+        </a>
+    {% endfor %}
     <div class="row">
         {% for image in images%}
     <!-- loop through all the images -->      
@@ -23,7 +33,7 @@
                 <img src="{{image.image.url}}" alt="fish">            
             </a>
         </div>
-{% endfor %}
+        {% endfor %}
    
     </div>
 </div>

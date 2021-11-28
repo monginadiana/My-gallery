@@ -14,10 +14,20 @@
   <div class="row">
 
   {% if images %}
-    {% for images in images %}
+    {% for image in images %}
       <div class="col-sm-6 col-md-3">
-          <h1>{{images.name}}</h1>
-          <img src="{{images.image.url}}" alt="fish">
+          <h2>{{image.name}}</h2>
+          <div class="img-details">
+              <span>
+                  <b>Category: </b>
+                  <i>{{image.category}}</i>
+              </span>
+              <span>
+                  <b>Location: </b>
+                  <i>{{image.location}}</i>
+              </span> 
+          </div>
+          <img src="{{image.image.url}}" alt="fish">
       </div>
     {% endfor %}
   {% endif %}
