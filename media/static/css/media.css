@@ -1,6 +1,16 @@
 h1
 {
   color: black;
+  font-size: medium;
+  font-family: Arial, Helvetica, sans-serif;
+  font-style: bold;
+}
+h2
+{
+  color: black;
+  font-size: medium;
+  font-family: Arial, Helvetica, sans-serif;
+  font-style: bold;
 }
 
 h2 {
@@ -10,6 +20,8 @@ h2 {
 
 .img-details {
   font-size: 8px;
+  font-weight: bold;
+  font-style: italic;
 }
 
 img {
@@ -24,5 +36,6 @@ img {
   font-size: 10px;
   line-height: 30px;
   border-radius: 5px;
-  background-color: rgba(253, 190, 95, 0.76);
+  color: white;
+  background-color: orange;
 }

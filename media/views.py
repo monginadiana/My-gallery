@@ -10,7 +10,7 @@ from media.models import Images, Category, Location
 
 def index(request):
     categories = Category.objects.all()
-    location = Location.objects.all()
+    locations = Location.objects.all()
     
     
     
@@ -22,11 +22,10 @@ def index(request):
         location_id = request.GET.get("location")
         images = Images.objects.filter(location = location_id)
        
-        
     else:
         images = Images.objects.all()
             
-    ctx = {'images':images, 'categories': categories, 'location':location }
+    ctx = {'images':images, 'categories': categories, 'locations':locations }
     return render(request, 'all-media/index.html',ctx)
 
 def search_results(request):
