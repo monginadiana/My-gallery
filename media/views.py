@@ -2,7 +2,7 @@ from django.shortcuts import render
 from django.http import Http404
 from django.core.exceptions import ObjectDoesNotExist
 
-from media.models import Images, Category
+from media.models import Images, Category, Location
 
 
 # Create your views here.
@@ -10,15 +10,23 @@ from media.models import Images, Category
 
 def index(request):
     categories = Category.objects.all()
+    location = Location.objects.all()
+    
+    
     
     if 'category' in request.GET and request.GET["category"]:
         category_id = request.GET.get("category")
         images = Images.objects.filter(category = category_id)
         
+    elif 'location' in request.GET and request.GET["location"]:
+        location_id = request.GET.get("location")
+        images = Images.objects.filter(location = location_id)
+       
+        
     else:
         images = Images.objects.all()
             
-    ctx = {'images':images, 'categories': categories }
+    ctx = {'images':images, 'categories': categories, 'location':location }
     return render(request, 'all-media/index.html',ctx)
 
 def search_results(request):
