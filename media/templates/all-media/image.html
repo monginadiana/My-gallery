@@ -2,22 +2,22 @@
 
  {% block content %}
 
-<div style= 'color: blue;'class="container ">
+<div style= 'color: blue;' class="container  ">
 <br><br><br>
-  <h1 class="text-center">Name:{{image.name}}</h1>
+  <h1 class="">Name:{{image.name}}</h1>
 
   <div class="img-details style= 'color: blue;">
       <span>
           <b>Category: </b>
-          <i>Category:{{image.category}}</i>
+          <i>{{image.category}}</i>
       </span>
       <span>
           <b>Location: </b>
-          <i>Location:{{image.location}}</i>
+          <i>{{image.location}}</i>
       </span> 
   </div>
   <div>
-    <p>Description:{{image.description}}</p>
+    <p>{{image.description}}</p>
   </div>
   <div class="img-container">
     <button class="share-button" onClick="shareImage('{{image.image.url}}')">
