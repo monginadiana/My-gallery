@@ -27,3 +27,8 @@ Django 2.2
 Django-Bootstrap
 HTML
 CSS
+
+## Support and Contact Details
+Should you be unable to access the website, have any recommendations and/or questions, feel free to email me:dianahmongina2@gmail.com
+
+## 
