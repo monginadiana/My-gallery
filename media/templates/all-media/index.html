@@ -24,13 +24,12 @@
                 <img src="{{image.image.url}}" alt="fish">            
             </a>
         </div>
+        
         {% endfor %}
         
    
     </div>
     <br>
-
-    
     <div class="row">
         <div class="col-md-6">
             <h2>Categories</h2>
@@ -51,7 +50,8 @@
                 </a>
                 {% for location in locations%}
             <!-- loop through all the images -->      
-                <a class="chip" href="/?location={{location.id}}">
+                <a class="chip" href="/?location={{location.id}}"><i
+                class="fas fa-map-marker-alt"></i>&nbsp;
                     <i>{{location.name}}</i>
                 </a>
                 

@@ -45,7 +45,7 @@ img {
 }
 
 .img-container img {
-  height: 70vh;
+  height: 70;
 }
 
 .share-button {
@@ -56,4 +56,8 @@ img {
   background: orange;
   border: none;
   border-radius: 3px;
+}
+.submit{
+  border: opx;
+
 }
