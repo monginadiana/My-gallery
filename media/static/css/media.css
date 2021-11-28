@@ -39,3 +39,17 @@ img {
   color: white;
   background-color: orange;
 }
+
+.img-container {
+  position: relative;
+}
+
+.share-button {
+  position: absolute;
+  bottom: 9px;
+  right: 13px;
+  color: white;
+  background: orange;
+  border: none;
+  border-radius: 3px;
+}

@@ -18,8 +18,12 @@
   <div>
     <p>{{image.description}}</p>
   </div>
-  
-  <img src="{{image.image.url}}"  alt="">
+  <div class="img-container">
+    <button class="share-button" onClick="shareImage('{{image.image.url}}')">
+      <i class="fas fa-share-alt"></i>
+    </button>
+    <img src="{{image.image.url}}"  alt="">
+  </div>
 </div>
 
  {% endblock %}
