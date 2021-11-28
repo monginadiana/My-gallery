@@ -44,6 +44,10 @@ img {
   position: relative;
 }
 
+.img-container img {
+  height: 70vh;
+}
+
 .share-button {
   position: absolute;
   bottom: 9px;
