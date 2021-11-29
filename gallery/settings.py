@@ -15,30 +15,21 @@ import django_heroku
 import dj_database_url
 from decouple import config, Csv
 
+# cloudinary
+import cloudinary.uploader
+import cloudinary.api
+
+
 
 MODE=config("MODE", default="dev")
 SECRET_KEY = config('SECRET_KEY')
-DEBUG = config('DEBUG', default=False, cast=bool)
+DEBUG = config('DEBUG', default=True, cast=bool)
 # development
-if config('MODE')=="dev":
-   DATABASES = {
-       'default': {
-           'ENGINE': 'django.db.backends.postgresql_psycopg2',
-           'NAME': config('DB_NAME'),
-           'USER': config('DB_USER'),
-           'PASSWORD': config('DB_PASSWORD'),
-           'HOST': config('DB_HOST'),
-           'PORT': '',
-       }
-       
-   }
-# production
-else:
-   DATABASES = {
-       'default': dj_database_url.config(
-           default=config('DATABASE_URL')
-       )
-   }
+DATABASES = {
+    'default': dj_database_url.config(
+        default=config('DATABASE_URL')
+    )
+}
 
 db_from_env = dj_database_url.config(conn_max_age=500)
 DATABASES['default'].update(db_from_env)
@@ -46,16 +37,14 @@ DATABASES['default'].update(db_from_env)
 ALLOWED_HOSTS = config('ALLOWED_HOSTS', cast=Csv())
 
 
-# cloudinary
-import cloudinary
-import cloudinary.uploader
-import cloudinary.api
+CLOUDINARY_STORAGE = {
+    'CLOUD_NAME': 'mongina',
+    'API_KEY': '332865662615486',
+    'API_SECRET': 'Mu5vzosaB_bVW-p8GaqQ0RHKtu4'
+}
 
-cloudinary.config( 
-  cloud_name = "mongina", 
-  api_key = "332865662615486", 
-  api_secret = "Mu5vzosaB_bVW-p8GaqQ0RHKtu4" 
-)
+DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -77,6 +66,7 @@ INSTALLED_APPS = [
     'bootstrap4',
     'media.apps.MediaConfig',
     'cloudinary',
+    'cloudinary_storage',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -87,7 +77,7 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
-     'whitenoise.middleware.WhiteNoiseMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -115,6 +105,8 @@ TEMPLATES = [
     },
 ]
 
+
+
 WSGI_APPLICATION = 'gallery.wsgi.application'
 
 
@@ -129,6 +121,7 @@ DATABASES = {
     'PASSWORD':'',
     }
 }
+
 
 
 # Password validation
@@ -174,13 +167,13 @@ STATICFILES_DIRS = [
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
-DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
+
 
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 # configuring the location for media
-MEDIA_URL = '/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+# MEDIA_URL = '/'
+# MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 # Configure Django App for Heroku.
 django_heroku.settings(locals())
