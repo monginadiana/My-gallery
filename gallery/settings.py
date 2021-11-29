@@ -36,6 +36,11 @@ DATABASES['default'].update(db_from_env)
 
 ALLOWED_HOSTS = config('ALLOWED_HOSTS', cast=Csv())
 
+cloudinary.config( 
+  cloud_name = "mongina", 
+  api_key = "332865662615486", 
+  api_secret = "Mu5vzosaB_bVW-p8GaqQ0RHKtu4" 
+)
 
 CLOUDINARY_STORAGE = {
     'CLOUD_NAME': 'mongina',
