@@ -15,6 +15,7 @@ import django_heroku
 import dj_database_url
 from decouple import config, Csv
 
+
 MODE=config("MODE", default="dev")
 SECRET_KEY = config('SECRET_KEY')
 DEBUG = config('DEBUG', default=False, cast=bool)
@@ -77,7 +78,6 @@ INSTALLED_APPS = [
     'bootstrap4',
     'media.apps.MediaConfig',
     'cloudinary',
-    'cloudinary_storage'
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
