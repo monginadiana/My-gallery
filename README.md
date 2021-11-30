@@ -21,10 +21,11 @@ Commit your changes (git commit -am 'Improve feature')
 Push to the branch (git push origin improve-feature)
 Create a Pull Request
 ## Screenshot
- <img src="/home/access/Documents/profile/media/static/Assets" alt="fish">     
+ <img src="/home/access/Documents/profile/media/static/Assets" alt="fish">
+
 ## Technology Used
 
-Technologies used to develop this application:
+## Technologies used to develop this application:
 
 Python 3.8
 Django 2.2
